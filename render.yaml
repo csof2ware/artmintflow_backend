@@ -1,0 +1,16 @@
+
+       # Exported from Render on 2025-07-16T03:53:15Z
+services:
+- type: web
+  name: artmintflow_backend
+  runtime: docker
+  repo: https://github.com/csof2ware/artmintflow_backend
+  plan: free
+  envVars:
+  - key: NFT_STORAGE_API
+    sync: false
+  region: oregon
+  dockerContext: .
+  dockerfilePath: ./Dockerfile
+  autoDeployTrigger: commit
+version: "1"
