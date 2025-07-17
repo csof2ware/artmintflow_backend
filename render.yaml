@@ -1,16 +1,9 @@
-
-       # Exported from Render on 2025-07-16T03:53:15Z
 services:
-- type: web
-  name: artmintflow_backend
-  runtime: docker
-  repo: https://github.com/csof2ware/artmintflow_backend
-  plan: free
-  envVars:
-  - key: NFT_STORAGE_API
-    sync: false
-  region: oregon
-  dockerContext: .
-  dockerfilePath: ./Dockerfile
-  autoDeployTrigger: commit
-version: "1"
+  - type: web
+    name: artmintflow-backend
+    runtime: python
+    buildCommand: ""
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: NFT_STORAGE_API
+        value: 5d9162ed10545d77536369469f9b32b5
