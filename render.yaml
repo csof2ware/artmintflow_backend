@@ -1,9 +1,11 @@
 services:
   - type: web
     name: artmintflow-backend
-    runtime: python
-    buildCommand: ""
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host=0.0.0.0 --port=10000"
+    plan: free
+    autoDeploy: true
     envVars:
-      - key: NFT_STORAGE_API
-        value: 5d9162ed10545d77536369469f9b32b5
+      - key: NFT_STORAGE_API_KEY
+        sync: false
